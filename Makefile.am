@@ -10,12 +10,8 @@ if COMPILE_GUI
   MAKE_PO = po
 endif
 
-if COMPILE_HTTPSERVER
-  MAKE_HTTPSERVER = httpserver
-endif
-
 if COMPILE_SERVER
-  MAKE_SERVER = server tools monitor $(MAKE_HTTPSERVER) controller
+  MAKE_SERVER = server tools monitor httpserver controller
 endif
 
 if WIN32
@@ -36,7 +32,7 @@ INTLTOOL = \
 
 EXTRA_DIST = install-sh $(INTLTOOL) README.markdown web scripts debian msi LICENCE.txt
 
-DISTCHECK_CONFIGURE_FLAGS = --enable-server --enable-httpserver
+DISTCHECK_CONFIGURE_FLAGS = --enable-server
 
 ACLOCAL_AMFLAGS = -I m4
 
